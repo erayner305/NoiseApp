@@ -2,6 +2,59 @@
 {%block content%}
 <br/>
 <center>
-    <h1>This is where all the wacky html goes</h1>
+    <h1 style="color:#dd550c;font-family: Arial">NoiseApp Calculations</h1>
+
+    <!-- Usable outputs for these forms are under the field "value" -->
+    <form>
+    	<fieldset style="display:inline-block;text-align:left;box-sizing:border-box;font-family: Arial">
+    		<legend style="color:#03244d;font-weight: 600">Regulation</legend>
+	    		<input type="radio" id="regulation1" name ="regulation" value="OSHA"/>
+		        <label style="color: #dd550c;font-weight: 400" for="regulation1"> OSHA</label><br>
+
+		        <input type="radio" id="regulation2" name ="regulation" value="NIOSH"/>
+		        <label style="color: #dd550c;font-weight: 400" for="regulation2"> NIOSH</label><br>
+
+		        <input type="radio" id="regulation3" name ="regulation" value="CustomRegulation"/>
+		        <label style="color: #dd550c;font-weight: 400" for="vehicle1"> Custom</label>
+
+			        <input type="text" id="customregulation1" name="customregulation" placeholder="ER Base" size = "5">
+			        <input type="text" id="customregulation2" name="customregulation" placeholder="ER Mult" size = "5">
+    	</fieldset>
+
+		<fieldset style="display:inline-block;text-align:left;box-sizing:border-box;font-family: Arial">
+			<legend style="color:#03244d;font-weight: 600">Standard</legend>
+			  	<input type="radio" id="standard1" name="standard" value="ES"/>
+			  	<label style="color:#dd550c;font-weight: 400" for="standard1">Engineering Standard</label><br>
+			  
+			  	<input type="radio" id="standard2" name="standard" value="HCP"/>
+			  	<label style="color:#dd550c;font-weight: 400" for="standard2">Hearing Conservation Program</label><br>
+			  
+			  	<input type="radio" id="standard3" name="standard" value="CustomStandard"/>
+			  	<label style="color:#dd550c;font-weight: 400" for="standard3">Custom</label>
+			  
+			  	<input type="text" id="customStandard2" name="Threshold" placeholder="Threshold" size="5">
+		</fieldset>
+	</form> 
+
+	<!-- Each one of these will be linked to some function with a variable amount of inputs -->
+    <form>
+    	<fieldset style="display:inline;font-family: Arial">
+    		<legend style="color:#03244d;font-weight: 600">LEQs</legend>
+    		<input type="text" id="LEQ1" name="LEQ1" placeholder="null" size = "5"><br>
+    		<input type="text" id="LEQ2" name="LEQ2" placeholder="null" size = "5"><br>
+    		<input type="text" id="LEQ3" name="LEQ3" placeholder="null" size = "5"><br>
+    		<input type="text" id="LEQ4" name="LEQ4" placeholder="null" size = "5"><br>
+    		<input type="text" id="LEQ5" name="LEQ5" placeholder="null" size = "5"><br>
+    		<input type="text" id="LEQ6" name="LEQ6" placeholder="null" size = "5"><br>
+    		<input type="text" id="LEQ7" name="LEQ7" placeholder="null" size = "5"><br>
+    		<input type="text" id="LEQ8" name="LEQ8" placeholder="null" size = "5"><br>
+    		<input type="text" id="LEQ9" name="LEQ9" placeholder="null" size = "5"><br>
+    		<input type="text" id="LEQ10" name="LEQ10" placeholder="null" size = "5"><br>
+    	</fieldset>
+    </form>
+
+    <!-- This submit button needs to linked to backend code that submits all of these forms at the same time -->
+    <input style="margin-top:8px" type="submit" value="Submit">
+
 </center>
 {%endblock%}
