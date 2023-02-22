@@ -1,3 +1,6 @@
+<head>
+	<!--<link href="{{url_for('static', filename ='css/styles.css')}}" rel="stylesheet" /> -->
+</head>
 {%extends 'base.html'%}
 {%block content%}
 <br/>
@@ -6,7 +9,8 @@
 
     <!-- Usable outputs for these forms are under the field "value" -->
     <form>
-    	<fieldset style="display:inline-block;text-align:left;box-sizing:border-box;font-family: Arial">
+	<div style="margin:auto;float:initial;padding:8px">
+		<fieldset style="display:inline-block;text-align:left;box-sizing:border-box;font-family: Arial;width: 280px;vertical-align:middle">
     		<legend style="color:#03244d;font-weight: 600">Regulation</legend>
 	    		<input type="radio" id="regulation1" name ="regulation" value="OSHA"/>
 		        <label style="color: #dd550c;font-weight: 400" for="regulation1"> OSHA</label><br>
@@ -15,13 +19,24 @@
 		        <label style="color: #dd550c;font-weight: 400" for="regulation2"> NIOSH</label><br>
 
 		        <input type="radio" id="regulation3" name ="regulation" value="CustomRegulation"/>
-		        <label style="color: #dd550c;font-weight: 400" for="vehicle1"> Custom</label>
+		        <label style="color: #dd550c;font-weight: 400" for="regulation3"> Custom: </label>
 
 			        <input type="text" id="customregulation1" name="customregulation" placeholder="ER Base" size = "5">
 			        <input type="text" id="customregulation2" name="customregulation" placeholder="ER Mult" size = "5">
     	</fieldset>
 
-		<fieldset style="display:inline-block;text-align:left;box-sizing:border-box;font-family: Arial">
+		<fieldset style="display:inline-block;font-family: Arial;text-align:left;vertical-align:middle;height:74px">
+			<legend style="color:#03244d;font-weight: 600">Hearing Protection</legend>
+			<input type="radio" id="hearingProc1" name ="hearingProc" value="true"/>
+			<label style="color: #dd550c;font-weight: 400" for="vehicle1"> Yes</label>
+
+				<input type="text" id="customregulation1" name="customregulation" placeholder="NRR" size = "5"><br>
+			
+			<input type="radio" id="hearingProc2" name ="hearingProc" value="false"/>
+			<label style="color: #dd550c;font-weight: 400" for="vehicle1"> None Used</label>
+		</fieldset>
+
+		<fieldset style="display:inline-block;text-align:left;box-sizing:border-box;font-family: Arial;width: 280px;vertical-align:middle">
 			<legend style="color:#03244d;font-weight: 600">Standard</legend>
 			  	<input type="radio" id="standard1" name="standard" value="ES"/>
 			  	<label style="color:#dd550c;font-weight: 400" for="standard1">Engineering Standard</label><br>
@@ -30,31 +45,55 @@
 			  	<label style="color:#dd550c;font-weight: 400" for="standard2">Hearing Conservation Program</label><br>
 			  
 			  	<input type="radio" id="standard3" name="standard" value="CustomStandard"/>
-			  	<label style="color:#dd550c;font-weight: 400" for="standard3">Custom</label>
+			  	<label style="color:#dd550c;font-weight: 400" for="standard3">Custom: </label>
 			  
-			  	<input type="text" id="customStandard2" name="Threshold" placeholder="Threshold" size="5">
+			  	<input type="text" id="customStandard2" name="Threshold" placeholder="Threshold" size="6">
 		</fieldset>
-	</form> 
+	</div>
+    	
+
 
 	<!-- Each one of these will be linked to some function with a variable amount of inputs -->
-    <form>
-    	<fieldset style="display:inline;font-family: Arial">
-    		<legend style="color:#03244d;font-weight: 600">LEQs</legend>
-    		<input type="text" id="LEQ1" name="LEQ1" placeholder="null" size = "5"><br>
-    		<input type="text" id="LEQ2" name="LEQ2" placeholder="null" size = "5"><br>
-    		<input type="text" id="LEQ3" name="LEQ3" placeholder="null" size = "5"><br>
-    		<input type="text" id="LEQ4" name="LEQ4" placeholder="null" size = "5"><br>
-    		<input type="text" id="LEQ5" name="LEQ5" placeholder="null" size = "5"><br>
-    		<input type="text" id="LEQ6" name="LEQ6" placeholder="null" size = "5"><br>
-    		<input type="text" id="LEQ7" name="LEQ7" placeholder="null" size = "5"><br>
-    		<input type="text" id="LEQ8" name="LEQ8" placeholder="null" size = "5"><br>
-    		<input type="text" id="LEQ9" name="LEQ9" placeholder="null" size = "5"><br>
-    		<input type="text" id="LEQ10" name="LEQ10" placeholder="null" size = "5"><br>
-    	</fieldset>
-    </form>
+		<div style="padding:8px;margin:auto">
+			<fieldset style="display:inline-block;font-family: Arial;text-align:right;width:90px">
+				<legend style="color:#03244d;font-weight: 600">LEQs</legend>
+				1. <input type="text" id="LEQ1" name="LEQ1" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				2. <input type="text" id="LEQ2" name="LEQ2" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				3. <input type="text" id="LEQ3" name="LEQ3" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				4. <input type="text" id="LEQ4" name="LEQ4" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				5. <input type="text" id="LEQ5" name="LEQ5" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				6. <input type="text" id="LEQ6" name="LEQ6" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				7. <input type="text" id="LEQ7" name="LEQ7" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				8. <input type="text" id="LEQ8" name="LEQ8" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				9. <input type="text" id="LEQ9" name="LEQ9" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				10. <input type="text" id="LEQ10" name="LEQ10" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+			</fieldset>
+	
+			<fieldset style="display:inline-block;font-family: Arial;text-align:right;width:90px">
+				<legend style="color:#03244d;font-weight: 600">Time (hrs)</legend>
+				1. <input type="text" id="TIME1" name="TIME1" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				2. <input type="text" id="TIME2" name="TIME2" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				3. <input type="text" id="TIME3" name="TIME3" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				4. <input type="text" id="TIME4" name="TIME4" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				5. <input type="text" id="TIME5" name="TIME5" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				6. <input type="text" id="TIME6" name="TIME6" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				7. <input type="text" id="TIME7" name="TIME7" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				8. <input type="text" id="TIME8" name="TIME8" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				9. <input type="text" id="TIME9" name="TIME9" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+				10. <input type="text" id="TIME10" name="TIME10" placeholder="null" size = "5" style="margin-bottom:2px"><br>
+			</fieldset>
+		</div>
+		<div>
 
-    <!-- This submit button needs to linked to backend code that submits all of these forms at the same time -->
-    <input style="margin-top:8px" type="submit" value="Submit">
+		</div>
+		<!-- This submit button needs to linked to backend code that submits all of these forms at the same time -->
+		<input style="margin-top:8px" type="submit" value="Submit">
+    </form>
+	<!-- This output will display the results -->
+	Result:<output ></output>
+
+    
+    
 
 </center>
 {%endblock%}
