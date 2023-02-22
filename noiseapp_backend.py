@@ -1,6 +1,6 @@
 '''
- Class object to contain the entire instance of a calculation
- Last updated: 2/10/23
+ Class object to contain the entire instance of the calculations needed for NoiseApp
+ Last updated: 2/15/23
  Authors: Jake Frassinelli
  Relevant materials:
  https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.95AppA
@@ -12,6 +12,7 @@ import math
 class NoiseApp:
     # initialize variables to be modified according to the specified inputs
     def __init__(self):
+        self.protocol = None # Will be used to store the name of the regulation method selected
         self.ERBase = None # OSHA (90), NIOSH (85), or CUSTOM
         self.ERMult = None # OSHA (5), NIOSH (3), or CUSTOM
         self.threshold = None # Max LEQ that can be experienced without protection safely
@@ -21,14 +22,17 @@ class NoiseApp:
     def setOSHA(self):
         self.ERBase = 90
         self.ERMult = 5
+        self.protocol = "OSHA"
 
     def setNIOSH(self):
         self.ERBase = 85
         self.ERMult = 3
+        self.protocol = "NIOSH"
 
     def setCUSTOM(self, base, mult):
         self.ERBase = base
         self.ERMult = mult
+        self.protocol = "CUSTOM"
 
     # The following three methods are used to set the threshold variable to either the engineering standard (90),
     # hearing conservation program (80), or a custom input
@@ -40,7 +44,14 @@ class NoiseApp:
 
     def setThreshCUSTOM(self, thresh):
         self.threshold = thresh
-        
+
+    # Reset method to simplify transitioning between calculations
+    def resetInfo(self):
+        self.protocol = None
+        self.ERBase = None
+        self.ERMult = None
+        self.threshold = None
+    
     # Equation for calculating the maximum safe exposure time (in hours) at the given LEQ for the selected regulations
     def durationEqn(self, LEQ):
         return 8/(2**((LEQ-self.ERBase)/self.ERMult))
@@ -73,7 +84,7 @@ class NoiseApp:
 
         TWA = (16.61*math.log(percentDosage/100,10))+90
         
-        return TWA
+        return round(TWA,1)
 
     # This takes in the calculated time weighted average LEQ and the NRR of PPE worn and
     # returns the recomended increase in NRR of your PPE
