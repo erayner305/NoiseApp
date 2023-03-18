@@ -92,5 +92,5 @@ class NoiseApp:
         if (TWA <= self.threshold):
             return 0
         else:
-            return ((TWA-self.threshold)*2)+7
+            return ((TWA-self.threshold)*2)+7+NRR
 
