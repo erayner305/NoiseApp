@@ -66,8 +66,9 @@ def index():
         percDosage = noiseapp.percentDosageCalc(arr, int(NRR))
         TWA = noiseapp.TWACalc(arr, int(NRR))
         protRec = noiseapp.protectionRec(TWA, int(NRR))
+        return render_template('index.html', percDosage = percDosage, protRec = protRec)
     
-    return render_template('index.html', percDosage = percDosage, protRec = protRec)
+    return render_template('index.html')
 
 @app.route('/about')
 def about():

@@ -6,7 +6,7 @@
 
 	<form method="POST">
 	<div style="padding:8px;margin:auto;">
-		<fieldset style="display:inline-block;font-family: Arial;text-align:right;width:90px;">
+		<fieldset style="display:inline-block;font-family: Arial;text-align:right;width:100px;">
 			<legend style="color:#03244d;font-weight: 600">LEQs</legend>
 			1. <input type="text" id="LEQ1" name="LEQ1" value="100" size = "5" style="margin-bottom:2px"><br>
 			2. <input type="text" id="LEQ2" name="LEQ2" value="0" size = "5" style="margin-bottom:2px"><br>
@@ -20,7 +20,7 @@
 			10. <input type="text" id="LEQ10" name="LEQ10" value="0" size = "5" style="margin-bottom:2px"><br>
 		</fieldset>
 
-		<fieldset style="display:inline-block;font-family: Arial;text-align:right;width:90px;">
+		<fieldset style="display:inline-block;font-family: Arial;text-align:right;width:100px;">
 			<legend style="color:#03244d;font-weight: 600">Time (hrs)</legend>
 			1. <input type="text" id="TIME1" name="TIME1" value="10" size = "5" style="margin-bottom:2px"><br>
 			2. <input type="text" id="TIME2" name="TIME2" value="0" size = "5" style="margin-bottom:2px"><br>
@@ -34,7 +34,7 @@
 			10. <input type="text" id="TIME10" name="TIME10" value="0" size = "5" style="margin-bottom:2px"><br>
 		</fieldset>
 
-		<fieldset style="display:inline-block;font-family: Arial;width:473px;height:249px;vertical-align:bottom;text-align:center;">
+		<fieldset style="display:inline-block;font-family: Arial;width:453px;height:249px;vertical-align:bottom;text-align:center;">
             <legend style="color:#03244d;font-weight: 600">Results</legend>
 			Percent Dosage:<output >{{ percDosage }}</output>
 			<br></br>
@@ -46,7 +46,7 @@
 	<div style="margin:auto;float:initial;padding:8px">
 		<fieldset style="display:inline-block;text-align:left;box-sizing:border-box;font-family: Arial;width: 280px;vertical-align:middle">
     		<legend style="color:#03244d;font-weight: 600">Regulation</legend>
-	    		<input type="radio" id="regulation1" name ="regulation" value="OSHA"/>
+	    		<input type="radio" id="regulation1" name ="regulation" value="OSHA" checked="checked"/>
 		        <label style="color: #dd550c;font-weight: 400" for="regulation1"> OSHA</label><br>
 
 		        <input type="radio" id="regulation2" name ="regulation" value="NIOSH"/>
@@ -66,13 +66,13 @@
 
 				<input type="text" id="customregulation1" name="NRR" value="7" size = "5"><br>
 			
-			<input type="radio" id="hearingProc2" name ="hearingProc" value="false"/>
+			<input type="radio" id="hearingProc2" name ="hearingProc" value="false" checked="checked"/>
 			<label style="color: #dd550c;font-weight: 400" for="vehicle1"> None Used</label>
 		</fieldset>
 
 		<fieldset style="display:inline-block;text-align:left;box-sizing:border-box;font-family: Arial;width: 280px;vertical-align:middle">
 			<legend style="color:#03244d;font-weight: 600">Threshold</legend>
-			  	<input type="radio" id="standard1" name="standard" value="ES"/>
+			  	<input type="radio" id="standard1" name="standard" value="ES" checked="checked"/>
 			  	<label style="color:#dd550c;font-weight: 400" for="standard1">Engineering Standard</label><br>
 			  
 			  	<input type="radio" id="standard2" name="standard" value="HCP"/>
