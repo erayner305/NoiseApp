@@ -5,9 +5,6 @@ noiseapp = NoiseApp()
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
-    result = 0
-    result2 = 0
-    safeTime = []
     NRR = ''
     if request.method == 'POST':
 
@@ -15,60 +12,61 @@ def index():
         Regulation = request.form.get("regulation")
         Standard = request.form.get("standard")
 
-        # Get NRR Values
-        if request.form.get("hearingProc") == "true":
-            NRR = request.form.get("NRR")
-        else:
-            NRR = 0
+        # Regulations Dictionary
+        regulation_dict = {
+        "OSHA": noiseapp.setOSHA,
+        "NIOSH": noiseapp.setNIOSH,
+        "CustomRegulation": lambda: noiseapp.setCUSTOM(float(request.form.get("customregulation1")), float(request.form.get("customregulation2")))
+        }
 
-        # Fill out arr with LEQ and Time Combinations
-        arr = []
-        for i in range(1, 11):
-            LEQ = int(request.form.get(f"LEQ{i}"))
-            TIME = int(request.form.get(f"TIME{i}"))
-            arr.append((LEQ, TIME))
+        # Set Regulation
+        if Regulation in regulation_dict:
+            regulation_dict[Regulation]()
 
-        # Set Regulation and Standard Values
-        if Regulation == "OSHA":
-            noiseapp.setOSHA()
-            if Standard == "ES":
-                noiseapp.setThreshENGSTD()
-            elif Standard == "HCP":
-                noiseapp.setThreshHCP()
-            else:
-                Threshold = int(request.form.get("Threshold"))
-                noiseapp.setThreshCUSTOM(Threshold)
-        elif Regulation == "NIOSH":
-            noiseapp.setNIOSH()
-            if Standard == "ES":
-                noiseapp.setThreshENGSTD()
-            elif Standard == "HCP":
-                noiseapp.setThreshHCP()
-            else:
-                Threshold = int(request.form.get("Threshold"))
-                noiseapp.setThreshCUSTOM(Threshold)
-        elif Regulation == "CustomRegulation":
-            customregulation1 = request.form.get("customregulation1")
-            customregulation2 = request.form.get("customregulation2")
-            if customregulation1 and customregulation2:
-                ER_BASE = float(customregulation1)
-                ER_MULT = float(customregulation2)
-            noiseapp.setCUSTOM(ER_BASE, ER_MULT)
-            if Standard == "ES":
-                noiseapp.setThreshENGSTD()
-            elif Standard == "HCP":
-                noiseapp.setThreshHCP()
-            else:
-                Threshold = int(request.form.get("Threshold"))
-                noiseapp.setThreshCUSTOM(Threshold)
+        # Standards Dictionary
+        standard_dict = {
+        "ES": noiseapp.setThreshENGSTD,
+        "HCP": noiseapp.setThreshHCP,
+        "CustomStandard": lambda: noiseapp.setThreshCUSTOM(int(request.form.get("Threshold")))
+        }
+
+        # Set Standards
+        if Standard in standard_dict:
+            standard_dict[Standard]()
 
         # Perform Calculations
-        percDosage = noiseapp.percentDosageCalc(arr, int(NRR))
-        TWA = noiseapp.TWACalc(arr, int(NRR))
-        protRec = noiseapp.protectionRec(TWA, int(NRR))
-        return render_template('index.html', percDosage = percDosage, protRec = protRec)
-    
-    return render_template('index.html')
+        try:
+            # Get NRR Values
+            if request.form.get("hearingProc") == "true":
+                NRR = request.form.get("NRR")
+            else:
+                NRR = 7
+
+            # Fill out arr with LEQ and Time Combinations
+            arr = []
+            for i in range(1, 11):
+                LEQ = (request.form.get(f"LEQ{i}"))
+                TIME = (request.form.get(f"TIME{i}"))
+                arr.append((int(LEQ), int(TIME)))
+            
+            # Perform Calculations
+            percDosage = noiseapp.percentDosageCalc(arr, int(NRR))
+            TWA = noiseapp.TWACalc(arr, int(NRR))
+            protRec = noiseapp.protectionRec(TWA, int(NRR))
+
+            return render_template('index.html', percDosage = percDosage, protRec = protRec)
+        
+        # Numbers too big
+        except OverflowError:
+            return render_template('index.html', percDosage = "Your exposure is too high and you might die." , protRec = "N/A")
+        
+        # Empty field(s)
+        except ValueError:
+            return render_template('index.html', percDosage = "Something went wrong. Make sure there are no empty fields and try again." , protRec = "N/A")
+
+        # All other errors
+        except:
+            return render_template('index.html', percDosage = "Something went wrong, please try again." , protRec = "N/A")
 
 @app.route('/about')
 def about():
