@@ -3,6 +3,13 @@ app = Flask(__name__)
 from noiseapp_backend import NoiseApp
 noiseapp = NoiseApp()
 
+# Numeric Checker
+def numCheck(value, default_value):
+    try:
+        return float(value)
+    except:
+        return default_value
+
 @app.route('/', methods=('GET', 'POST'))
 def index():
     NRR = ''
@@ -16,7 +23,9 @@ def index():
         regulation_dict = {
         "OSHA": noiseapp.setOSHA,
         "NIOSH": noiseapp.setNIOSH,
-        "CustomRegulation": lambda: noiseapp.setCUSTOM(float(request.form.get("customregulation1")), float(request.form.get("customregulation2")))
+        "CustomRegulation": lambda: noiseapp.setCUSTOM(
+            numCheck(request.form.get(("customregulation1")), 0),
+            numCheck(request.form.get(("customregulation2")), 0))
         }
 
         # Set Regulation
@@ -27,7 +36,8 @@ def index():
         standard_dict = {
         "ES": noiseapp.setThreshENGSTD,
         "HCP": noiseapp.setThreshHCP,
-        "CustomStandard": lambda: noiseapp.setThreshCUSTOM(int(request.form.get("Threshold")))
+        "CustomStandard": lambda: noiseapp.setThreshCUSTOM(
+            numCheck((request.form.get("Threshold")), 0))
         }
 
         # Set Standards
@@ -38,7 +48,7 @@ def index():
         try:
             # Get NRR Values
             if request.form.get("hearingProc") == "true":
-                NRR = request.form.get("NRR")
+                NRR = numCheck(request.form.get("NRR"), 7)
             else:
                 NRR = 7
 
