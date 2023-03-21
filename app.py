@@ -77,6 +77,8 @@ def index():
         # All other errors
         except:
             return render_template('index.html', percDosage = "Something went wrong, please try again." , protRec = "N/A")
+        
+    return render_template('index.html', percDosage = None, protRec = None)
 
 @app.route('/about')
 def about():
