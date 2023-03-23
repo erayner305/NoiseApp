@@ -68,15 +68,15 @@ def index():
         
         # Numbers too big
         except OverflowError:
-            return render_template('index.html', percDosage = "Your exposure is too high and you might die." , protRec = "N/A")
+            return render_template('index.html', error = "There is an overflow error")
         
         # Empty field(s)
         except ValueError:
-            return render_template('index.html', percDosage = "Something went wrong. Make sure there are no empty fields and try again." , protRec = "N/A")
+            return render_template('index.html',  error = "There is a value error")
 
         # All other errors
         except:
-            return render_template('index.html', percDosage = "Something went wrong, please try again." , protRec = "N/A")
+            return render_template('index.html', error = "Something went wrong, please try again.")
         
     return render_template('index.html', percDosage = None, protRec = None)
 
