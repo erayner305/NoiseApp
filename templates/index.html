@@ -35,10 +35,19 @@
 		</fieldset>
 
 		<fieldset style="display:inline-block;font-family: Arial;width:453px;height:249px;vertical-align:bottom;text-align:center;">
-            <legend style="color:#03244d;font-weight: 600">Results</legend>
-			Percent Dosage:<output >{{ percDosage }}</output>
-			<br></br>
-			Protection:<output >{{ protRec }}</output>
+			<legend style="color:#03244d;font-weight: 600">Results</legend>
+			{% if percDosage is defined %}
+				Percent Dosage:<output >{{ percDosage }}</output>
+				<br></br>
+			{% endif %}
+			{% if protRec is defined %}
+				Total Recommended Protection:<output >{{ protRec }}</output>
+				<br></br>
+			{% endif %}
+			{% if error is defined %}
+				<output >{{ error }}</output>
+				<br></br>
+			{% endif %}
 		</fieldset>	
 	</div>
     <!-- Usable outputs for these forms are under the field "value" -->
