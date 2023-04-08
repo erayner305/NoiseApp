@@ -1,2 +1,4 @@
 /venv
 /_pycache_
+__pycache__/noiseapp_backend.cpython-311.pyc
+__pycache__/app.cpython-311.pyc

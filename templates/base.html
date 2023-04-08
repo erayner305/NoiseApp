@@ -1,12 +1,46 @@
-<a style = "color:#dd550c;padding:3px" href="{{url_for('index')}}">Home</a>
-<a style = "color:#dd550c;padding:3px" href="{{url_for('about')}}">Tool Walkthrough</a>
-<a style = "color:#dd550c;padding:3px" href="{{url_for('reginfo')}}">Regulation Info</a>
-<a style = "color:#dd550c;padding:3px" href="{{url_for('moreinfo')}}">More Info</a>
-<br/><br/>
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+      
+      li {
+        float: left;
+      }
+      
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      /* Change the link color to #111 (black) on hover */
+      li a:hover:not(.active) {
+        background-color: #111;
+      }
+
+      .active {
+        background-color: #dd550c;
+      }
+
+      body {
+		padding: 0px;
+		margin: 0px;
+		background-color: #cdcdcd;
+	    }
+
+</style>
+<body>
+
 {%block content%}
 
 {%endblock%}
-<br/><br/>
 <center>
     Copyright (c) to the NoiseApp Bois - All Rights Reserved
 </center>
+</body>
