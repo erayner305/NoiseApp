@@ -4,8 +4,16 @@
 	fieldset {
 		background: white;
 		border-radius: 5px;
+		font-family: 'Arial', sans-serif;
 	}
 
+	fieldset legend {
+		font-family: 'Arial', sans-serif;
+	}
+
+	h1 {
+		font-family: 'Helvetica', 'Arial', sans-serif;
+	}
 
 </style>
 <ul>
@@ -16,11 +24,11 @@
 </ul>
 <br/>
 <center>
-    <h1 style="color:#dd550c;font-family: Arial">NoiseApp Calculations</h1>
+    <h1 style="color:#dd550c;">NoiseApp Calculations</h1>
 
 	<form method="POST">
 	<div style="padding:8px;margin:auto;">
-		<fieldset style="display:inline-block;font-family: Arial;text-align:right;width:100px;">
+		<fieldset style="display:inline-block;text-align:right;width:100px;">
 			<legend style="color:#03244d;font-weight: 600">LEQs</legend>
 			1. <input type="text" id="LEQ1" name="LEQ1" value="100" size = "5" style="margin-bottom:2px"><br>
 			2. <input type="text" id="LEQ2" name="LEQ2" value="0" size = "5" style="margin-bottom:2px"><br>
@@ -34,7 +42,7 @@
 			10. <input type="text" id="LEQ10" name="LEQ10" value="0" size = "5" style="margin-bottom:2px"><br>
 		</fieldset>
 
-		<fieldset style="display:inline-block;font-family: Arial;text-align:right;width:100px;">
+		<fieldset style="display:inline-block;text-align:right;width:100px;">
 			<legend style="color:#03244d;font-weight: 600">Time (hrs)</legend>
 			1. <input type="text" id="TIME1" name="TIME1" value="10" size = "5" style="margin-bottom:2px"><br>
 			2. <input type="text" id="TIME2" name="TIME2" value="0" size = "5" style="margin-bottom:2px"><br>
@@ -48,7 +56,7 @@
 			10. <input type="text" id="TIME10" name="TIME10" value="0" size = "5" style="margin-bottom:2px"><br>
 		</fieldset>
 
-		<fieldset style="display:inline-block;font-family: Arial;width:453px;height:249px;vertical-align:bottom;text-align:center;">
+		<fieldset style="display:inline-block;width:453px;height:249px;vertical-align:bottom;text-align:center;">
 			<legend style="color:#03244d;font-weight: 600">Results</legend>
 			{% if percDosage is defined %}
 				Percent Dosage:<output >{{ percDosage }}</output>
@@ -67,7 +75,7 @@
     <!-- Usable outputs for these forms are under the field "value" -->
     <form>
 	<div style="margin:auto;float:initial;padding:8px">
-		<fieldset style="display:inline-block;text-align:left;box-sizing:border-box;font-family: Arial;width: 280px;vertical-align:middle">
+		<fieldset style="display:inline-block;text-align:left;box-sizing:border-box;width: 280px;vertical-align:middle">
     		<legend style="color:#03244d;font-weight: 600">Regulation</legend>
 	    		<input type="radio" id="regulation1" name ="regulation" value="OSHA" checked="checked"/>
 		        <label style="color: #dd550c;font-weight: 400" for="regulation1"> OSHA</label><br>
@@ -82,7 +90,7 @@
 			        <input type="text" id="customregulation2" name="customregulation2" placeholder="ER Mult" size = "5">
     	</fieldset>
 
-		<fieldset style="display:inline-block;font-family: Arial;text-align:left;vertical-align:middle;height:74px">
+		<fieldset style="display:inline-block;text-align:left;vertical-align:middle;height:74px">
 			<legend style="color:#03244d;font-weight: 600">Hearing Protection</legend>
 			<input type="radio" id="hearingProc1" name ="hearingProc" value="true"/>
 			<label style="color: #dd550c;font-weight: 400" for="vehicle1"> Yes</label>
@@ -93,7 +101,7 @@
 			<label style="color: #dd550c;font-weight: 400" for="vehicle1"> None Used</label>
 		</fieldset>
 
-		<fieldset style="display:inline-block;text-align:left;box-sizing:border-box;font-family: Arial;width: 280px;vertical-align:middle">
+		<fieldset style="display:inline-block;text-align:left;box-sizing:border-box;width: 280px;vertical-align:middle">
 			<legend style="color:#03244d;font-weight: 600">Threshold</legend>
 			  	<input type="radio" id="standard1" name="standard" value="ES" checked="checked"/>
 			  	<label style="color:#dd550c;font-weight: 400" for="standard1">Engineering Standard</label><br>
