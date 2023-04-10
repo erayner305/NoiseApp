@@ -1,9 +1,9 @@
 {%extends 'base.html'%}
 {%block content%}
 <ul>
-    <li><a href="{{url_for('index')}}">NoiseApp Home</a></li>
-    <li><a href="{{url_for('about')}}">Tool Walkthrough</a></li>
-    <li><a href="{{url_for('reginfo')}}">Regulation Info</a></li>
     <li><a class="active" href="{{url_for('moreinfo')}}">More Info</a></li>
+    <li><a href="{{url_for('reginfo')}}">Regulation Info</a></li>
+	<li><a href="{{url_for('about')}}">Tool Walkthrough</a></li>
+	<li><a href="{{url_for('index')}}">Home</a></li>
 </ul>
 {%endblock%}

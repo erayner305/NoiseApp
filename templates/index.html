@@ -3,15 +3,16 @@
 <style>
 
 </style>
+
 <ul>
-    <li><a class="active" href="{{url_for('index')}}">NoiseApp Home</a></li>
-    <li><a href="{{url_for('about')}}">Tool Walkthrough</a></li>
-    <li><a href="{{url_for('reginfo')}}">Regulation Info</a></li>
     <li><a href="{{url_for('moreinfo')}}">More Info</a></li>
+    <li><a href="{{url_for('reginfo')}}">Regulation Info</a></li>
+	<li><a href="{{url_for('about')}}">Tool Walkthrough</a></li>
+	<li><a class="active" href="{{url_for('index')}}">Home</a></li>
 </ul>
 <br/>
 <center>
-    <h1>NoiseApp Calculations</h1>
+    <h1>Noise<a style="color:#337ab7">App</a> Calculations</h1>
 
 	<form method="POST">
 	<div style="padding:8px;margin:auto;">
@@ -45,18 +46,21 @@
 
 		<fieldset class="top-fields" style="display:inline-block;width:453px;vertical-align:bottom;text-align:center;">
 			<legend >Results</legend>
+			<div style="height:100%;vertical-align: middle;">
 			{% if percDosage is defined %}
-				Percent Dosage:<output >{{ percDosage }}</output>
+				<b>Percent Dosage: </b><output >{{ percDosage }}</output>
 				<br></br>
 			{% endif %}
 			{% if protRec is defined %}
-				Total Recommended Protection:<output >{{ protRec }}</output>
+				<b>Total Recommended Protection: </b><output >{{ protRec }}</output>
 				<br></br>
 			{% endif %}
 			{% if error is defined %}
 				<output >{{ error }}</output>
 				<br></br>
 			{% endif %}
+			</div>
+
 		</fieldset>	
 	</div>
     <!-- Usable outputs for these forms are under the field "value" -->
@@ -65,41 +69,41 @@
 		<fieldset class="bottom-fields" style="display:inline-block;text-align:left;width: 265px;vertical-align:middle">
     		<legend>Regulation</legend>
 	    		<input type="radio" id="regulation1" name ="regulation" value="OSHA" checked="checked"/>
-		        <label style="color: #ff6e20;font-weight: 400" for="regulation1"> OSHA</label><br>
+		        <label for="regulation1"> OSHA</label><br>
 
 		        <input type="radio" id="regulation2" name ="regulation" value="NIOSH"/>
-		        <label style="color: #ff6e20;font-weight: 400" for="regulation2"> NIOSH</label><br>
+		        <label for="regulation2"> NIOSH</label><br>
 
 		        <input type="radio" id="regulation3" name ="regulation" value="CustomRegulation"/>
-		        <label style="color: #ff6e20;font-weight: 400" for="regulation3"> Custom: </label>
+		        <label for="regulation3"> Custom: </label>
 
 			        <input type="text" id="customregulation1" name="customregulation1" placeholder="ER Base" size = "5">
 			        <input type="text" id="customregulation2" name="customregulation2" placeholder="ER Mult" size = "5">
     	</fieldset>
 
 		<fieldset class="bottom-fields" style="display:inline-block;text-align:left;vertical-align:middle;">
-			<legend >Hearing Protection</legend>
+			<legend>Hearing Protection</legend>
 			<input type="radio" id="hearingProc1" name ="hearingProc" value="true"/>
-			<label style="color: #ff6e20;font-weight: 400" for="vehicle1"> Yes</label>
+			<label for="vehicle1"> Yes</label>
 
-				<input type="text" id="customregulation1" name="NRR" value="7" size = "5"><br>
+				<input type="text" id="customregulation1" name="NRR" placeholder = "NRR" size = "5"><br>
 			
 			<input type="radio" id="hearingProc2" name ="hearingProc" value="false" checked="checked"/>
-			<label style="color: #ff6e20;font-weight: 400" for="vehicle1"> None Used</label>
+			<label  for="vehicle1"> None Used</label>
 		</fieldset>
 
 		<fieldset class="bottom-fields" style="display:inline-block;text-align:left;width: 265px;vertical-align:middle">
 			<legend >Threshold</legend>
 			  	<input type="radio" id="standard1" name="standard" value="ES" checked="checked"/>
-			  	<label style="color:#ff6e20;font-weight: 400" for="standard1">Engineering Standard</label><br>
+			  	<label for="standard1">Engineering Standard</label><br>
 			  
 			  	<input type="radio" id="standard2" name="standard" value="HCP"/>
-			  	<label style="color:#ff6e20;font-weight: 400" for="standard2">Hearing Conservation Program</label><br>
+			  	<label for="standard2">Hearing Conservation Program</label><br>
 			  
 			  	<input type="radio" id="standard3" name="standard" value="CustomStandard"/>
-			  	<label style="color:#ff6e20;font-weight: 400" for="standard3">Custom: </label>
+			  	<label for="standard3">Custom: </label>
 			  
-			  	<input type="text" id="customStandard2" name="Threshold" placeholder="Threshold" size="6">
+			  	<input type="text" id="customStandard2" name="Threshold" placeholder="Threshold" size="7">
 		</fieldset>
 	</div>
     	
