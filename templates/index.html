@@ -47,14 +47,27 @@
 		<fieldset class="top-fields" style="display:inline-block;width:453px;vertical-align:bottom;text-align:center;">
 			<legend >Results</legend>
 			<div style="height:100%;vertical-align: middle;">
+			<!--We check to see if percDosage is defined, and return it if it is-->
 			{% if percDosage is defined %}
-				<b>Percent Dosage: </b><output >{{ percDosage }}</output>
+				Percent Dosage:<output >{{ percDosage }}</output>
 				<br></br>
 			{% endif %}
-			{% if protRec is defined %}
-				<b>Total Recommended Protection: </b><output >{{ protRec }}</output>
-				<br></br>
+			<!--We are checking if protRec is defined and isn't none because are doing calculations with it-->
+			{% if protRec is defined%}
+			{% if protRec is not none%}
+			Total Recommended Protection:<output >{{ protRec }}</output>
+			<br></br>
+			<!--Logic for returning different color squares-->
+			{% if protRec > 20 %}
+				<img src="https://freesvg.org/img/1286146771.png" alt="Red" width="150" height="150">
+			{% elif protRec > 0 %}
+				<img src="https://freesvg.org/img/lightyellow.png" alt="Yellow" width="150" height="150"/>
+			{% else %}
+				<img src="https://freesvg.org/img/1286138576.png" alt='Green' width="150" height="150"/>
 			{% endif %}
+			{% endif %}
+			{% endif %}
+			<!--If we are throwing an error, we can just output the error alone-->
 			{% if error is defined %}
 				<output >{{ error }}</output>
 				<br></br>
@@ -107,21 +120,12 @@
 		</fieldset>
 	</div>
     	
-
-
 	<!-- Each one of these will be linked to some function with a variable amount of inputs -->
-
 		<div>
-
 		</div>
 		<!-- This submit button needs to linked to backend code that submits all of these forms at the same time -->
 		<input style="margin-top:8px; font-family:Work Sans" type="submit" value="Submit">
     </form>
 	<!-- This output will display the results -->
-
-
-    
-    
-
 </center>
 {%endblock%}
