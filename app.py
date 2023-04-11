@@ -3,7 +3,8 @@ app = Flask(__name__)
 from noiseapp_backend import NoiseApp
 noiseapp = NoiseApp()
 
-# Numeric Checker
+# This function checks if the value is numerical and can return a placeholder if it isn't numerical.
+# We will be using this function to make sure inputs are acceptable and for error-catching.
 def numCheck(value, default_value):
     try:
         return float(value)
@@ -46,31 +47,32 @@ def index():
 
         # Perform Calculations
         try:
-            # Get NRR Values
+            # Get NRR Values from user
             if request.form.get("hearingProc") == "true":
                 NRR = numCheck(request.form.get("NRR"), 7)
             else:
                 NRR = 7
 
-            # Fill out arr with LEQ and Time Combinations
+            # Get LEQ and TIME values from user and combine them into an arr
             arr = []
             for i in range(1, 11):
                 LEQ = (request.form.get(f"LEQ{i}"))
                 TIME = (request.form.get(f"TIME{i}"))
                 arr.append((int(LEQ), int(TIME)))
             
-            # Perform Calculations
+            # We are using percentDosageCalc, TWACalc, and protectionRec from the noiseapp.backend file
+            # percDosage and protRec are returned to the user to show their exposure and provide a recommendation
             percDosage = noiseapp.percentDosageCalc(arr, int(NRR))
             TWA = noiseapp.TWACalc(arr, int(NRR))
             protRec = noiseapp.protectionRec(TWA, int(NRR))
 
             return render_template('index.html', percDosage = percDosage, protRec = protRec)
         
-        # Numbers too big
+        # Catch overflow errors if user tries inputting too large LEQ or Time
         except OverflowError:
             return render_template('index.html', error = "There is an overflow error")
         
-        # Empty field(s)
+        # Catch value errors if user leaves field(s) empty
         except ValueError:
             return render_template('index.html',  error = "There is a value error")
 
