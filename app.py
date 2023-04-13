@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session
 app = Flask(__name__)
-app.secret_key = 'ilovejake'
+app.secret_key = #Add your own secret key
 from noiseapp_backend import NoiseApp
 noiseapp = NoiseApp()
 
