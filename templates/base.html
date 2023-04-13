@@ -1,4 +1,44 @@
-<style>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<style>    
+
+    .top-fields {
+        height: 250px;
+    }
+
+    .bottom-fields {
+        height: 80px;
+    }
+
+    fieldset {
+		background: white;
+		border-radius: 5px;
+		font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+	}
+
+	fieldset legend {
+		font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    color:#333  ;
+	}
+
+  fieldset label {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+    color:#333;
+  }
+
+	h1 {
+		font-family: 'Work Sans', sans-serif;
+        font-weight: 400;
+        color:#333;
+	}
+
     ul {
         list-style-type: none;
         margin: 0;
@@ -8,6 +48,10 @@
       }
       
       li {
+        float: right;
+      }
+
+      .li-unused {
         float: left;
       }
       
@@ -17,6 +61,9 @@
         text-align: center;
         padding: 8px 16px;
         text-decoration: none;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 300;
+        font-size: xx-large;
       }
 
       li > a {
@@ -37,13 +84,13 @@
       }
 
       .active {
-        background-color: #dd550c;
+        background-color: #337ab7;
       }
 
       body {
 		padding: 0px;
 		margin: 0px;
-		background-color: #cdcdcd;
+		background-color: #eaeaea;
 	    }
 
 </style>
@@ -52,6 +99,7 @@
 {%block content%}
 
 {%endblock%}
+<br>
 <center>
     Copyright (c) to the NoiseApp Bois - All Rights Reserved
 </center>
