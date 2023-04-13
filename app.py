@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 app = Flask(__name__)
+app.secret_key = 'ilovejake'
 from noiseapp_backend import NoiseApp
 noiseapp = NoiseApp()
 
@@ -65,6 +66,12 @@ def index():
             percDosage = noiseapp.percentDosageCalc(arr, int(NRR))
             TWA = noiseapp.TWACalc(arr, int(NRR))
             protRec = noiseapp.protectionRec(TWA, int(NRR))
+            
+            # We are storing those calculations that we performed earlier using Flask's session support
+            # We can return these stored session values to maintain state
+            session['percDosage'] = percDosage
+            session['TWA'] = TWA
+            session['protRec'] = protRec
 
             return render_template('index.html', percDosage = percDosage, protRec = protRec)
         
@@ -80,7 +87,8 @@ def index():
         except:
             return render_template('index.html', error = "Something went wrong, please try again.")
         
-    return render_template('index.html', percDosage = None, protRec = None)
+    # Return the state values that we saved earlier if they are available
+    return render_template('index.html', percDosage = session.get('percDosage'), protRec = session.get('protRec'))
 
 @app.route('/about')
 def about():
