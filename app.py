@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session
 app = Flask(__name__)
-app.secret_key = #Add your own secret key
+app.secret_key = #Add your own secret key.
 from noiseapp_backend import NoiseApp
 noiseapp = NoiseApp()
 
@@ -9,7 +9,7 @@ noiseapp = NoiseApp()
 def numCheck(value, default_value):
     try:
         return float(value)
-    except:
+    except ValueError:
         return default_value
 
 @app.route('/', methods=('GET', 'POST'))
@@ -17,48 +17,53 @@ def index():
     NRR = ''
     if request.method == 'POST':
 
-        # Get Regulation and Standard
+        # Get Regulation and Standard from submitted form
         Regulation = request.form.get("regulation")
         Standard = request.form.get("standard")
 
-        # Regulations Dictionary
+        # Regulations Dictionary to map user input to its proper regulation
         regulation_dict = {
         "OSHA": noiseapp.setOSHA,
         "NIOSH": noiseapp.setNIOSH,
+        # Using numCheck to catch errors from inputting non-numerical values for ERBase, ERMult
         "CustomRegulation": lambda: noiseapp.setCUSTOM(
-            numCheck(request.form.get(("customregulation1")), 0),
-            numCheck(request.form.get(("customregulation2")), 0))
+            numCheck(request.form.get("customregulation1"), 90),
+            numCheck(request.form.get("customregulation2"), 5))
         }
 
-        # Set Regulation
+        # Set Regulation based on user input
         if Regulation in regulation_dict:
             regulation_dict[Regulation]()
 
-        # Standards Dictionary
+        # Standards Dictionary to map user input to its proper standard
         standard_dict = {
         "ES": noiseapp.setThreshENGSTD,
         "HCP": noiseapp.setThreshHCP,
+        # Using numCheck to catch errors from inputting non-numerical values for Threshold
         "CustomStandard": lambda: noiseapp.setThreshCUSTOM(
-            numCheck((request.form.get("Threshold")), 0))
+            numCheck(request.form.get("Threshold"), 90))
         }
 
-        # Set Standards
+        # Set Standards based on user input
         if Standard in standard_dict:
             standard_dict[Standard]()
 
         # Perform Calculations
         try:
-            # Get NRR Values from user
+            # Get NRR Values from submitted form
             if request.form.get("hearingProc") == "true":
+                # Using numCheck to catch errors from inputting non-numerical values for NRR 
                 NRR = numCheck(request.form.get("NRR"), 7)
             else:
+                # If no NRR was input, we default to 7
                 NRR = 7
 
-            # Get LEQ and TIME values from user and combine them into an arr
+            # Iterate through the form and append LEQ, TIME pairs into a list
             arr = []
             for i in range(1, 11):
-                LEQ = (request.form.get(f"LEQ{i}"))
-                TIME = (request.form.get(f"TIME{i}"))
+                # Using numCheck to catch errors from inputting non-numerical values into LEQ, TIME
+                LEQ = numCheck(request.form.get(f"LEQ{i}"), 0)
+                TIME = numCheck(request.form.get(f"TIME{i}"), 0)
                 arr.append((int(LEQ), int(TIME)))
             
             # We are using percentDosageCalc, TWACalc, and protectionRec from the noiseapp.backend file
@@ -66,9 +71,9 @@ def index():
             percDosage = noiseapp.percentDosageCalc(arr, int(NRR))
             TWA = noiseapp.TWACalc(arr, int(NRR))
             protRec = noiseapp.protectionRec(TWA, int(NRR))
-            
+
             # We are storing those calculations that we performed earlier using Flask's session support
-            # We can return these stored session values to maintain state
+            # We can then use these stores session values to maintain state
             session['percDosage'] = percDosage
             session['TWA'] = TWA
             session['protRec'] = protRec
