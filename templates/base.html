@@ -35,8 +35,11 @@
 
 	h1 {
 		font-family: 'Work Sans', sans-serif;
-        font-weight: 400;
-        color:#333;
+    font-weight: 400;
+    color:#333;
+    padding: 1%;
+    padding-bottom: 0px;
+    font-size: 300%;
 	}
 
     ul {
@@ -55,7 +58,7 @@
         float: left;
       }
       
-      span {
+      li>span {
         display: block;
         color: white;
         text-align: center;
@@ -87,6 +90,41 @@
         background-color: #337ab7;
       }
 
+      ol {
+        display:inline-block;
+        list-style-position: outside;
+        color: #333;
+        text-align: left;
+        padding: 0px 16px;
+        text-decoration: none;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 300;
+        font-size: medium;
+        margin: 0% 15% 0% 15%;
+      }
+
+      ol > li {
+        padding: 1%;
+        font-size: larger;
+        line-height: 31px;
+      }
+
+      ol > li::marker {
+        font-weight: bold;
+      }
+
+      .bottom-of-page {
+          display:inline-block;
+          width: 100%;
+          color: #333;
+          text-align: center;
+          font-family: 'Work Sans', sans-serif;
+          font-weight: 300;
+          font-size: medium;
+          padding-bottom: 2%;
+          margin: auto;
+      }
+
       body {
 		padding: 0px;
 		margin: 0px;
@@ -100,7 +138,10 @@
 
 {%endblock%}
 <br>
-<center>
+<div>
+  <center>
     Copyright (c) to the NoiseApp Bois - All Rights Reserved
-</center>
+  </center>
+</div>
+
 </body>

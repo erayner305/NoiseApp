@@ -5,9 +5,10 @@
     <li><a href="{{url_for('moreinfo')}}">More Info</a></li>
     <li><a href="{{url_for('reginfo')}}">Regulation Info</a></li>
 	<li><a class="active" href="{{url_for('about')}}">Tool Walkthrough</a></li>
-	<li><a href="{{url_for('index')}}">Home</a></li>
+	<li><a href="{{url_for('index')}}">Calculations</a></li>
 </ul>
-    <div style="font-size:large;font-family:Work Sans;color:#333;margin:5% 33% 100px 50px">
+<h1 style="padding-left:10%">Tool <span style="color:#337ab7">Walkthrough</span></h1>
+<ol>
         <li>Begin by selecting the regulation you wish to use for your calculation. If you are unsure of which regulation you should select more information can be found on the ‘Regulation Information’ tab, found in the navigation bar. If you wish to input custom numbers for your regulation’s calculations you may do so by selecting ‘Custom’ and inputting the desired values.</li>
 
         <li>If hearing protection was used or is planned to be used during the session you are calculating you can check ‘Yes’ in the ‘Hearing Protection’ box and input the Noise Reduction Rating (NRR) of the Proper Protective Equipment (PPE) used. If no hearing protection was used then simply select ‘None Used.’ Do NOT select ‘Yes’ and then input an NRR of 0, this will throw off your calculation and lead to inaccurate results.</li>
@@ -18,7 +19,11 @@
 
         <li>After all the above has been completed you can ensure that your inputs are as you would like them and then hit the ‘Submit’ button. This will return you one or two numbers, the first of which represents the percent of your maximum recommended sound dosage you reached. The other, if present, is the minimum NRR protection that would need to be worn during this session to decrease the audio dosage below the recommended amount.</li>
 
-        <li>More information on how the calculation is taking place as well as information about PPE and NRR can be found in the ‘More Information’ tab. Happy calculating!</li>
-    </div>
+</ol>
+
+<div class="bottom-of-page">
+    <center style="padding:0%">_______________________________________________________________________________________________________________________________________________________</center>
+    <center style="padding-top:12px;font-size: larger;">More information on how the calculation is taking place as well as information about PPE and NRR can be found in the ‘More Information’ tab. Happy calculating!</center>
+</div>
 
 {%endblock%}
