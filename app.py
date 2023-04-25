@@ -65,7 +65,7 @@ def index():
                 # Using numCheck to catch errors from inputting non-numerical values into LEQ, TIME
                 LEQ = numCheck(request.form.get(f"LEQ{i}"), 0)
                 TIME = numCheck(request.form.get(f"TIME{i}"), 0)
-                arr.append((int(LEQ), int(TIME)))
+                arr.append((int(LEQ), float(TIME)))
             
             # We are using percentDosageCalc, TWACalc, and protectionRec from the noiseapp.backend file
             # percDosage and protRec are returned to the user to show their exposure and provide a recommendation
