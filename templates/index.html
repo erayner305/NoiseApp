@@ -1,111 +1,55 @@
 {%extends 'base.html'%}
 {%block content%}
-<style>
 
-</style>
-
-<ul>
-	<li class="li-unused"><span>Noise<a style="color:#337ab7">App</a></span></li>
-    <li><a href="{{url_for('moreinfo')}}">More Info</a></li>
-    <li><a href="{{url_for('reginfo')}}">Regulation Info</a></li>
-	<li><a href="{{url_for('about')}}">Tool Walkthrough</a></li>
-	<li><a class="active" href="{{url_for('index')}}">Home</a></li>
-</ul>
+	<ul>
+		<li class="li-unused"><span>Noise<a style="color:#337ab7">App</a></span></li>
+		<li><a href="{{url_for('moreinfo')}}">More Info</a></li>
+		<li><a href="{{url_for('reginfo')}}">Regulation Info</a></li>
+		<li><a href="{{url_for('about')}}">Tool Walkthrough</a></li>
+		<li><a class="active" href="{{url_for('index')}}">Calculations</a></li>
+	</ul>
 <br/>
 <center>
-
+<br>
+	<div class="flexbox-overall">
+	<div class="flexbox-topfields">
 	<form method="POST">
-	<div style="padding:8px;margin:auto;">
-		<fieldset class="top-fields" style="display:inline-block;text-align:right;width:100px;">
+
+		<fieldset class="top-fields">
 			<legend >LEQs</legend>
-			1. <input type="text" id="LEQ1" name="LEQ1" value="100" size = "5" style="margin-bottom:2px"><br>
-			2. <input type="text" id="LEQ2" name="LEQ2" value="0" size = "5" style="margin-bottom:2px"><br>
-			3. <input type="text" id="LEQ3" name="LEQ3" value="0" size = "5" style="margin-bottom:2px"><br>
-			4. <input type="text" id="LEQ4" name="LEQ4" value="0" size = "5" style="margin-bottom:2px"><br>
-			5. <input type="text" id="LEQ5" name="LEQ5" value="0" size = "5" style="margin-bottom:2px"><br>
-			6. <input type="text" id="LEQ6" name="LEQ6" value="0" size = "5" style="margin-bottom:2px"><br>
-			7. <input type="text" id="LEQ7" name="LEQ7" value="0" size = "5" style="margin-bottom:2px"><br>
-			8. <input type="text" id="LEQ8" name="LEQ8" value="0" size = "5" style="margin-bottom:2px"><br>
-			9. <input type="text" id="LEQ9" name="LEQ9" value="0" size = "5" style="margin-bottom:2px"><br>
-			10. <input type="text" id="LEQ10" name="LEQ10" value="0" size = "5" style="margin-bottom:2px"><br>
+			<br><br><br>
+			1. <input type="text" id="LEQ1" name="LEQ1" value="100" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			2. <input type="text" id="LEQ2" name="LEQ2" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			3. <input type="text" id="LEQ3" name="LEQ3" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			4. <input type="text" id="LEQ4" name="LEQ4" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			5. <input type="text" id="LEQ5" name="LEQ5" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			6. <input type="text" id="LEQ6" name="LEQ6" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			7. <input type="text" id="LEQ7" name="LEQ7" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			8. <input type="text" id="LEQ8" name="LEQ8" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			9. <input type="text" id="LEQ9" name="LEQ9" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			10. <input type="text" id="LEQ10" name="LEQ10" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
 		</fieldset>
 
-		<fieldset class="top-fields" style="display:inline-block;text-align:right;width:100px;">
+		<fieldset class="top-fields">
 			<legend >Time (hrs)</legend>
-			1. <input type="text" id="TIME1" name="TIME1" value="10" size = "5" style="margin-bottom:2px"><br>
-			2. <input type="text" id="TIME2" name="TIME2" value="0" size = "5" style="margin-bottom:2px"><br>
-			3. <input type="text" id="TIME3" name="TIME3" value="0" size = "5" style="margin-bottom:2px"><br>
-			4. <input type="text" id="TIME4" name="TIME4" value="0" size = "5" style="margin-bottom:2px"><br>
-			5. <input type="text" id="TIME5" name="TIME5" value="0" size = "5" style="margin-bottom:2px"><br>
-			6. <input type="text" id="TIME6" name="TIME6" value="0" size = "5" style="margin-bottom:2px"><br>
-			7. <input type="text" id="TIME7" name="TIME7" value="0" size = "5" style="margin-bottom:2px"><br>
-			8. <input type="text" id="TIME8" name="TIME8" value="0" size = "5" style="margin-bottom:2px"><br>
-			9. <input type="text" id="TIME9" name="TIME9" value="0" size = "5" style="margin-bottom:2px"><br>
-			10. <input type="text" id="TIME10" name="TIME10" value="0" size = "5" style="margin-bottom:2px"><br>
+			<br><br><br>
+			1. <input type="text" id="TIME1" name="TIME1" value="10" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			2. <input type="text" id="TIME2" name="TIME2" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			3. <input type="text" id="TIME3" name="TIME3" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			4. <input type="text" id="TIME4" name="TIME4" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			5. <input type="text" id="TIME5" name="TIME5" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			6. <input type="text" id="TIME6" name="TIME6" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			7. <input type="text" id="TIME7" name="TIME7" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			8. <input type="text" id="TIME8" name="TIME8" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			9. <input type="text" id="TIME9" name="TIME9" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
+			10. <input type="text" id="TIME10" name="TIME10" value="0" size = "5" style="margin-bottom:2px"><br><br><br><br>
 		</fieldset>
-
-		<fieldset class="top-fields" style="display:inline-block;width:453px;vertical-align:bottom;text-align:center;">
-			<legend >Results</legend>
-			<div style="height:100%;vertical-align: middle;">
-			<!--We check to see if percDosage is defined, and return it if it is-->
-			{% if percDosage is defined %}
-				Percent Dosage:<output >{{ percDosage }}</output>
-				<br></br>
-			{% endif %}
-			<!--We are checking if protRec is defined and isn't none because are doing calculations with it-->
-			{% if protRec is defined%}
-			{% if protRec is not none%}
-			Total Recommended Protection:<output >{{ protRec }}</output>
-			<br></br>
-			<!--Logic for returning different color squares-->
-			{% if protRec > 20 %}
-				<img src="https://freesvg.org/img/1286146771.png" alt="Red" width="150" height="150">
-			{% elif protRec > 0 %}
-				<img src="https://freesvg.org/img/lightyellow.png" alt="Yellow" width="150" height="150"/>
-			{% else %}
-				<img src="https://freesvg.org/img/1286138576.png" alt='Green' width="150" height="150"/>
-			{% endif %}
-			{% endif %}
-			{% endif %}
-			<!--If we are throwing an error, we can just output the error alone-->
-			{% if error is defined %}
-				<output >{{ error }}</output>
-				<br></br>
-			{% endif %}
-			</div>
-
-		</fieldset>	
 	</div>
+
     <!-- Usable outputs for these forms are under the field "value" -->
     <form>
-	<div style="margin:auto;float:initial;padding:8px">
-		<fieldset class="bottom-fields" style="display:inline-block;text-align:left;width: 265px;vertical-align:middle">
-    		<legend>Regulation</legend>
-	    		<input type="radio" id="regulation1" name ="regulation" value="OSHA" checked="checked"/>
-		        <label for="regulation1"> OSHA</label><br>
-
-		        <input type="radio" id="regulation2" name ="regulation" value="NIOSH"/>
-		        <label for="regulation2"> NIOSH</label><br>
-
-		        <input type="radio" id="regulation3" name ="regulation" value="CustomRegulation"/>
-		        <label for="regulation3"> Custom: </label>
-
-			        <input type="text" id="customregulation1" name="customregulation1" placeholder="ER Base" size = "5">
-			        <input type="text" id="customregulation2" name="customregulation2" placeholder="ER Mult" size = "5">
-    	</fieldset>
-
-		<fieldset class="bottom-fields" style="display:inline-block;text-align:left;vertical-align:middle;">
-			<legend>Hearing Protection</legend>
-			<input type="radio" id="hearingProc1" name ="hearingProc" value="true"/>
-			<label for="vehicle1"> Yes</label>
-
-				<input type="text" id="customregulation1" name="NRR" placeholder = "NRR" size = "5"><br>
-			
-			<input type="radio" id="hearingProc2" name ="hearingProc" value="false" checked="checked"/>
-			<label  for="vehicle1"> None Used</label>
-		</fieldset>
-
-		<fieldset class="bottom-fields" style="display:inline-block;text-align:left;width: 265px;vertical-align:middle">
+		<div class="flexbox-bottomfields">
+		<fieldset class="bottom-fields">
 			<legend >Threshold</legend>
 			  	<input type="radio" id="standard1" name="standard" value="ES" checked="checked"/>
 			  	<label for="standard1">Engineering Standard</label><br>
@@ -118,14 +62,79 @@
 			  
 			  	<input type="text" id="customStandard2" name="Threshold" placeholder="Threshold" size="7">
 		</fieldset>
-	</div>
+
+			<fieldset class="bottom-fields">
+				<legend>Regulation</legend>
+					<input type="radio" id="regulation1" name ="regulation" value="OSHA" checked="checked"/>
+					<label for="regulation1"> OSHA</label><br>
+	
+					<input type="radio" id="regulation2" name ="regulation" value="NIOSH"/>
+					<label for="regulation2"> NIOSH</label><br>
+	
+					<input type="radio" id="regulation3" name ="regulation" value="CustomRegulation"/>
+					<label for="regulation3"> Custom: </label>
+	
+						<input type="text" id="customregulation1" name="customregulation1" placeholder="ER Base" size = "5">
+						<input type="text" id="customregulation2" name="customregulation2" placeholder="ER Mult" size = "5">
+			</fieldset>
+
+			<fieldset class="bottom-fields" style="max-width: 260px;">
+				<legend>Hearing Protection</legend>
+				<input type="radio" id="hearingProc1" name ="hearingProc" value="true"/>
+				<label for="vehicle1"> Yes</label>
+	
+					<input type="text" id="customregulation1" name="NRR" placeholder = "NRR" size = "5"><br>
+				
+				<input type="radio" id="hearingProc2" name ="hearingProc" value="false" checked="checked"/>
+				<label  for="vehicle1"> None Used</label>
+			</fieldset>
+			
+		</div>
+
+	
     	
 	<!-- Each one of these will be linked to some function with a variable amount of inputs -->
-		<div>
-		</div>
+
 		<!-- This submit button needs to linked to backend code that submits all of these forms at the same time -->
+		<div class="flexbox-buttonsfields" style="transform: translate(-175%, 925%);">
 		<input style="margin-top:8px; font-family:Work Sans" type="submit" value="Submit">
-    </form>
+		
+    	</form>
+	</div>
+</div>
 	<!-- This output will display the results -->
+	
+	<fieldset class="result-fields" style="text-align:center;display: inline-block;">
+		<legend >Results</legend>
+
+		<!--We check to see if percDosage is defined, and return it if it is-->
+		{% if percDosage is defined %}
+			Percent Dosage:<output >{{ percDosage }}</output>
+			<br></br>
+		{% endif %}
+		<!--We are checking if protRec is defined and isn't none because are doing calculations with it-->
+		{% if protRec is defined%}
+		{% if protRec is not none%}
+		Total Recommended Protection:<output >{{ protRec }}</output>
+		<br></br>
+		<!--Logic for returning different color squares-->
+		{% if protRec > 20 %}
+			<img src="https://freesvg.org/img/1286146771.png" alt="Red" width="150" height="150">
+		{% elif protRec > 0 %}
+			<img src="https://freesvg.org/img/lightyellow.png" alt="Yellow" width="150" height="150"/>
+		{% else %}
+			<img src="https://freesvg.org/img/1286138576.png" alt='Green' width="150" height="150"/>
+		{% endif %}
+		{% endif %}
+		{% endif %}
+		<!--If we are throwing an error, we can just output the error alone-->
+		{% if error is defined %}
+			<output >{{ error }}</output>
+			<br></br>
+		{% endif %}
+
+
+	</fieldset>	
+
 </center>
 {%endblock%}

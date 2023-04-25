@@ -7,4 +7,53 @@
 	<li><a href="{{url_for('about')}}">Tool Walkthrough</a></li>
 	<li><a href="{{url_for('index')}}">Calculations</a></li>
 </ul>
+<h1 style="padding-left:10%">More <span style="color:#337ab7">Info</span></h1>
+<div class="reg-info">
+    <b>The different ‘Standards’ options provided by the application were selected by simply looking at 
+    OSHA regulations and utilizing different levels that they specified. The so-called ‘Engineering standard’ 
+    selection sets the permissible exposure limit (PEL) to 90, similarly the ‘Hearing conservation program’ 
+    selection sets the PEL to 80. PEL is simply the level of sound that is safe for a person to experience 
+    when their noise dosage is converted to an 8 hour time weighted average.</b>
+    <br>
+    <br>
+    <b>Snippet explaining our base values (taken from “Noise Exposure: Explanation of OSHA and NIOSH Safe-Exposure Limits and the Importance of Noise Dosimetry”):</b>
+    <br>
+    <br>
+    OSHA uses a criterion level of 90 dB, a threshold level of 80 dB, and an exchange rate
+of 5 dB. An OSHA 100% noise dose is 90 dB for 8 hours, 95 dB for 4 hours, 100 dB for
+2 hours, and so on (OSHA decreases the PEL to 85 dB for 8 hours if the employee has a
+documented threshold shift; see 29CFR 1910.95 for additional details).
+    <br>
+    <br>
+    NIOSH uses a criterion level of 85 dB, a threshold level of 75 dB, and an exchange rate
+of 3 dB. A NIOSH 100% noise dose is 85 dB for 8 hours, 88 dB for 4 hours, 91dB for
+2 hours, and so on.
+<br>
+<br>
+<b>Equation taken from OSHA’s website (our duration equation method was derived from this):</b>
+<br>
+<br>
+<img src="https://www.osha.gov/sites/default/files/95APPATABLEG.gif" alt="Duration Equation">
+<br>
+<br>
+<b>Another snippet from OSHA’s website that explains our equation for the percent dosage calculation code:</b>
+<br>
+<br>
+When the workshift noise exposure is composed of two or more periods of noise at different levels, the total noise dose over the work day is given by:
+<br>
+<br>
+D = 100(C1 / T1 + C2 / T2 + Cn / Tn),
+<br>
+<br>
+where Cn indicates the total time of exposure at a specific noise level, and Tn indicates the reference duration for that level as given 
+by <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.95AppA#:~:text=Computation%20of%20Employee%20Noise%20Exposure&text=D%20%3D%20100">Table G-16a.</a>
+<br>
+<br> 
+<b>We use a formula on the provided Noise Reduction Rating (NRR) to reduce the advertised protection to a more realistic level that 
+    might be experienced in less than ideal conditions. A short explanation of how we calculate the experienced PEL of the session 
+    given for our protection recommendation can be found at this 
+    <a href="https://multimedia.3m.com/mws/media/91867O/3m-hearing-protection-how-to-use-the-noise-reduction-rating-nrr.pdf">3M pamphlet</a>.</b>
+<br>
+
+</div>
 {%endblock%}

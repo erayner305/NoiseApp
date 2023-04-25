@@ -6,12 +6,59 @@
 
 <style>    
 
+  .flexbox-topfields {
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    flex-direction: row;
+    }
+
+    .flexbox-bottomfields {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    flex-direction: column; 
+    }
+    .flexbox-buttonsfields {
+   
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    flex-direction: row; 
+    display: inline-block; 
+    }    
+     
+    .flexbox-overall {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: 3%
+    } 
+
+    .flexbox-results {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    } 
+
     .top-fields {
-        height: 250px;
+      text-align:right;
+      display: inline-block;
+      height:360px;
+      font-size:x-large;
+      margin-top:12px;
     }
 
     .bottom-fields {
-        height: 80px;
+      text-align:left;
+      height: 106px;
+      width: 400px;
+         
+      }
+      .result-fields {
+      width:750px;
+      height: 300px;
     }
 
     fieldset {
@@ -19,6 +66,7 @@
 		border-radius: 5px;
 		font-family: 'Work Sans', sans-serif;
     font-weight: 300;
+    font-size:x-large;
 	}
 
 	fieldset legend {
@@ -26,6 +74,15 @@
     font-weight: 400;
     color:#333  ;
 	}
+
+  input {
+    font-size: large;
+
+  }
+  
+  .top-fields {
+    line-height: 10%;
+  }
 
   fieldset label {
     font-family: 'Work Sans', sans-serif;
@@ -90,6 +147,14 @@
         background-color: #337ab7;
       }
 
+      li > ul {
+        list-style-type: disc;
+        margin: 5%;
+        padding: 5%;
+        overflow: visible;
+        background-color: #eaeaea;
+      }
+
       ol {
         display:inline-block;
         list-style-position: outside;
@@ -113,6 +178,32 @@
         font-weight: bold;
       }
 
+      .reg-style {
+        display: default;
+        list-style-position: outside;
+        background-color: #eaeaea;
+        text-align: center;
+        padding: 0px 0px 0px 0px;
+        text-decoration: none;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 300;
+        font-size: medium;
+        margin: 0% 1em 0% 1em;
+      }
+
+      .reg-style > li {
+        padding: 1em 1.5em 1em 1.5em;
+        font-size: larger;
+        list-style-type: none;
+        color:#333;
+      }
+
+      .reg-style > li > a{
+        color:#337ab7;
+        font-weight:300;
+        font-size:larger;
+      }
+
       .bottom-of-page {
           display:inline-block;
           width: 100%;
@@ -126,11 +217,22 @@
       }
 
       body {
-		padding: 0px;
-		margin: 0px;
+		padding: 0;
+		margin: 0;
 		background-color: #eaeaea;
 	    }
 
+      .reg-info {
+        display:inline-block;
+        color: #333;
+        padding: 0px 16px;
+        text-align:center;
+        text-decoration: none;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 300;
+        font-size: larger;
+        margin: 0% 15% 1% 15%;
+      }
 </style>
 <body>
 
